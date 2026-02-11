@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide des Titres de Séjour en France 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-icon">📄</div>
+            <h1 id="main-title">Guide des Titres de Séjour en France</h1>
+            <p class="subtitle" id="subtitle">Documents justificatifs pour renouvellement et changement de statut (2026)</p>
+            
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <span class="language-label">🌐 <span id="lang-label">Langue</span>:</span>
+                <button class="lang-btn active" data-lang="fr">🇫🇷 Français</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+                <button class="lang-btn" data-lang="ar">🇸🇦 العربية</button>
+                <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+                <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+                <button class="lang-btn" data-lang="pt">🇵🇹 Português</button>
+            </div>
+        </header>
+
+        <!-- Important Notice 2026 -->
+        <div class="notice-2026" id="notice2026">
+            <div class="notice-header">
+                <div class="notice-title">
+                    <span>⚠️</span>
+                    <span id="notice-title">Information Importante 2026</span>
+                </div>
+                <span id="notice-arrow">▼</span>
+            </div>
+            <div class="notice-content" id="notice-content">
+                <div class="notice-box">
+                    <h4 id="civic-exam-title">✅ Examen Civique</h4>
+                    <p id="civic-exam-desc">Depuis le 1er janvier 2026, un examen civique est obligatoire pour toute première demande de titre pluriannuel ou de carte de résident.</p>
+                    <p id="civic-exam-details">L'examen dure 45 minutes, comprend 40 questions (QCM) et nécessite 80% de bonnes réponses. L'attestation de réussite est valable à vie.</p>
+                </div>
+                <div class="notice-box">
+                    <h4 id="french-level-title">📚 Niveau de Français</h4>
+                    <ul style="margin-left: 1.5rem; color: #fef3c7; line-height: 1.8;">
+                        <li id="french-a2">Niveau A2 minimum requis pour carte pluriannuelle</li>
+                        <li id="french-b1">Niveau B1 minimum requis pour carte de résident</li>
+                        <li id="french-b2">Niveau B2 minimum requis pour la naturalisation</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <p id="warning-renewal">⚠️ Attention : Les renouvellements de titres pluriannuels ou de cartes de résident ne nécessitent PAS l'examen civique ni le nouveau niveau de français.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-view">
+            <h2 id="select-title" class="gradient-title">Sélectionnez votre type de titre de séjour</h2>
+            
+            <div class="cards-grid" id="cards-grid"></div>
+            
+            <!-- Status Change Section -->
+            <div class="status-change-section">
+                <h2 id="status-change-title">🔄 Changement de Statut</h2>
+                <div class="status-changes-grid" id="status-changes-grid"></div>
+            </div>
+        </div>
+
+        <!-- Detail View -->
+        <div id="detail-view" class="detail-view"></div>
+
+        <!-- Footer -->
+        <footer>
+            <p id="footer-text">Guide créé pour faciliter vos démarches administratives</p>
+            <p class="footer-small" id="footer-anef">Démarche en ligne via ANEF : administration-etrangers-en-france.interieur.gouv.fr</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
