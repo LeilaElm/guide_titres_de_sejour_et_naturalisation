@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet des titres de séjour en France - Documents, critères et démarches 2026">
+    <title>Guide des Titres de Séjour en France 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+            background-attachment: fixed;
+            color: #e0e7ff;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3));
+        }
+
+        h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: #93c5fd;
+            font-weight: 300;
+        }
+
+        /* Notice 2026 */
+        .notice-2026 {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .notice-2026:hover {
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 8px 32px rgba(251, 191, 36, 0.2);
+        }
+
+        .notice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notice-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        #notice-arrow {
+            font-size: 1.25rem;
+            color: #fbbf24;
+            transition: transform 0.3s ease;
+        }
+
+        .notice-content {
+            margin-top: 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .notice-content.active {
+            max-height: 1000px;
+        }
+
+        .notice-box {
+            background: rgba(120, 53, 15, 0.4);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .notice-box h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fcd34d;
+        }
+
+        .notice-box p, .notice-box ul {
+            color: #fef3c7;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+        }
+
+        .notice-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .warning-box {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            color: #6ee7b7;
+            font-weight: 600;
+        }
+
+        /* Main Title */
+        .main-title {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(147, 197, 253, 0.4);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .card-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #93c5fd;
+            font-weight: 500;
+        }
+
+        /* Status Change Section */
+        .status-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .status-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .status-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(192, 132, 252, 0.5);
+            box-shadow: 0 16px 48px rgba(168, 85, 247, 0.3);
+        }
+
+        .status-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-label {
+            font-size: 0.875rem;
+            color: #c4b5fd;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-name {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: white;
+            margin: 0.5rem 0;
+        }
+
+        /* Detail View */
+        .detail-view {
+            display: none;
+        }
+
+        .detail-view.active {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(-4px);
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .detail-icon {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            flex-shrink: 0;
+        }
+
+        .detail-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .detail-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+
+        .detail-subtitle {
+            font-size: 1.25rem;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            border-radius: 0.875rem;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Info Boxes */
+        .info-notice {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-radius: 0.875rem;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #6ee7b7;
+            font-weight: 500;
+        }
+
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-box {
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid;
+        }
+
+        .info-box.timeline {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(147, 197, 253, 0.3);
+        }
+
+        .info-box.online {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(52, 211, 153, 0.3);
+        }
+
+        .info-box.fees {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .info-box-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+        }
+
+        .info-box-value {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .info-box.fees .info-box-value {
+            font-size: 2rem;
+            font-weight: 700;
+            opacity: 1;
+        }
+
+        /* Document Sections */
+        .doc-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title.eligibility { color: #fbbf24; }
+        .section-title.common { color: #60a5fa; }
+        .section-title.specific { color: #c084fc; }
+        .section-title.criteria { color: #c084fc; }
+
+        .doc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .doc-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .doc-item:hover {
+            transform: translateX(8px);
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(147, 197, 253, 0.3);
+        }
+
+        .doc-item.eligibility {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .doc-item.eligibility:hover {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(251, 191, 36, 0.5);
+        }
+
+        .doc-item.specific {
+            background: rgba(168, 85, 247, 0.1);
+            border-color: rgba(192, 132, 252, 0.3);
+        }
+
+        .doc-item.specific:hover {
+            background: rgba(168, 85, 247, 0.15);
+            border-color: rgba(192, 132, 252, 0.5);
+        }
+
+        .doc-item.criteria {
+            background: rgba(147, 51, 234, 0.1);
+            border-color: rgba(192, 132, 252, 0.3);
+        }
+
+        .doc-item.criteria:hover {
+            background: rgba(147, 51, 234, 0.15);
+            border-color: rgba(192, 132, 252, 0.5);
+        }
+
+        .doc-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .doc-text {
+            flex: 1;
+            line-height: 1.7;
+            color: #e0e7ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #93c5fd;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #93c5fd;
+        }
+
+        .footer-small {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-header {
+                flex-direction: column;
+            }
+
+            .info-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .notice-title {
+                font-size: 1.25rem;
+            }
+
+            .detail-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-icon">📄</div>
+            <h1>Guide des Titres de Séjour en France</h1>
+            <p class="subtitle">Documents justificatifs pour renouvellement et changement de statut (2026)</p>
+        </header>
+
+        <div class="notice-2026" id="notice2026">
+            <div class="notice-header">
+                <div class="notice-title">
+                    <span>⚠️</span>
+                    <span>Information Importante 2026</span>
+                </div>
+                <span id="notice-arrow">▼</span>
+            </div>
+            <div class="notice-content" id="notice-content">
+                <div class="notice-box">
+                    <h4>✅ Examen Civique</h4>
+                    <p>Depuis le 1er janvier 2026, un examen civique est obligatoire pour toute première demande de titre pluriannuel ou de carte de résident.</p>
+                    <p>L'examen dure 45 minutes, comprend 40 questions (QCM) et nécessite 80% de bonnes réponses. L'attestation de réussite est valable à vie.</p>
+                </div>
+                <div class="notice-box">
+                    <h4>📚 Niveau de Français</h4>
+                    <ul>
+                        <li>Niveau A2 minimum requis pour carte pluriannuelle</li>
+                        <li>Niveau B1 minimum requis pour carte de résident</li>
+                        <li>Niveau B2 minimum requis pour la naturalisation</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <p>⚠️ <strong>Attention :</strong> Les renouvellements de titres pluriannuels ou de cartes de résident ne nécessitent PAS l'examen civique ni le nouveau niveau de français.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-view">
+            <h2 class="main-title">Sélectionnez votre type de titre de séjour</h2>
+            <div class="cards-grid" id="cards-grid"></div>
+            
+            <div class="status-section">
+                <h2>🔄 Changement de Statut</h2>
+                <div class="status-grid" id="status-grid"></div>
+            </div>
+        </div>
+
+        <div id="detail-view" class="detail-view"></div>
+
+        <footer>
+            <p>Guide créé pour faciliter vos démarches administratives</p>
+            <p class="footer-small">Démarche en ligne via ANEF : <a href="https://administration-etrangers-en-france.interieur.gouv.fr" target="_blank" rel="noopener">administration-etrangers-en-france.interieur.gouv.fr</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
